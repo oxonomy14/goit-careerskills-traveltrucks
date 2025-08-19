@@ -1,0 +1,139 @@
+.wrapper {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+}
+
+.location {
+  margin-bottom: 40px;
+}
+
+.location p {
+  font-weight: 400;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.locationBox {
+  border-radius: 12px;
+  padding: 18px 0px 18px 20px;
+  width: 360px;
+  height: 56px;
+  background-color: var(--inputs);
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.IconLocation {
+  width: 20px;
+  height: 20px;
+  fill: var(--main);
+}
+
+.locationBox p {
+  font-weight: 400;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  color: var(--main);
+}
+
+.FiltersBoxTitle {
+  font-weight: 500;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.FiltersFormTitle {
+  font-weight: 600;
+  font-size: 20px;
+
+  /* line-height: 24px; */
+  line-height: 1.2;
+  color: var(--main);
+  padding-bottom: 24px; /* ← отступ до линии */
+  border-bottom: 1px solid var(--gray-light);
+  margin-bottom: 24px;
+}
+
+.FiltersFormInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.FiltersCheck {
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: 16px 40px;
+  width: 112px;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* расстояние между иконкой и текстом */
+}
+
+.FiltersCheckIcon {
+  flex-shrink: 0;
+}
+
+.FiltersCheckText {
+  font-weight: 500;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--main);
+}
+
+.FiltersFormInput:checked + .FiltersCheck {
+  border: 1px solid var(--button);
+}
+
+.FiltersFormVehicleEquipment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.FiltersFormVehicleType {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.FiltersFormButton {
+  font-weight: 500;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
+
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  background-color: var(--button);
+}
+
+.FiltersFormButton:hover {
+  background-color: var(--button-hover);
+}

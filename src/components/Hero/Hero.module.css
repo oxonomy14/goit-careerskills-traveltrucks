@@ -1,0 +1,62 @@
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    /* fallback для старых браузеров */
+    background-image: url('/image/heroBackground-desk.webp');
+
+    /* ретина-версия */
+    background-image: -webkit-image-set(
+      url('/image/heroBackground-desk.webp') 1x,
+      url('/image/heroBackground-desk@2x.webp') 2x
+    );
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 260px 64px;
+
+    width: 100%;
+    min-height: 696px;
+  }
+
+  .heroTitle {
+    font-weight: 600;
+    font-size: 48px;
+
+    /* line-height: 32px; */
+    line-height: 0.66667;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .heroText {
+    font-weight: 600;
+    font-size: 24px;
+
+    /* line-height: 32px; */
+    line-height: 1.33333;
+    color: var(--inputs);
+    margin-bottom: 40px;
+  }
+  .heroButton {
+    border-radius: 200px;
+    padding: 16px 60px;
+    width: 173px;
+    height: 56px;
+    background-color: var(--button);
+
+    font-weight: 500;
+    font-size: 16px;
+
+    /* line-height: 24px; */
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--white);
+
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .heroButton:hover {
+    background-color: var(--button-hover);
+  }
+}
