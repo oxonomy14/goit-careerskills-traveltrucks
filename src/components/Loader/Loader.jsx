@@ -1,11 +1,20 @@
-import { ClipLoader } from 'react-spinners';
-import s from './Loader.module.css';
+//import { ClipLoader } from 'react-spinners';
+import { CircleLoader } from 'react-spinners';
+
+import css from './Loader.module.css';
 
 const Loader = () => {
   return (
-    <div className={s.backdrop}>
-      <ClipLoader
-        color="#649179"
+    <div className={css.backdrop}>
+      {/* <ClipLoader
+        color="#e44848"
+        loading
+        size={60}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      /> */}
+      <CircleLoader
+        color="#e44848"
         loading
         size={60}
         aria-label="Loading Spinner"

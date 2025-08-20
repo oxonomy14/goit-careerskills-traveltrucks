@@ -1,8 +1,7 @@
 import css from './CatalogCard.module.css';
 import { Link } from 'react-router-dom';
-import LoadMore from '../LoadMore/LoadMore';
 
-const CatalogCard = () => {
+const CatalogCard = ({ item }) => {
   return (
     <>
       <div className={css.CatalogCard}>
@@ -77,7 +76,6 @@ const CatalogCard = () => {
           </Link>
         </div>
       </div>
-      <LoadMore />
     </>
   );
 };

@@ -2,6 +2,8 @@ import Container from '../../components/Container/Container';
 import css from './CampersPage.module.css';
 import SideBar from '../../components/SideBar/SideBar';
 import Catalog from '../../components/Catalog/Catalog';
+import Loader from '../../components/Loader/Loader';
+import LoadMore from '../../components/LoadMore/LoadMore';
 import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCampers } from '../../redux/operations';
@@ -32,7 +34,7 @@ const CampersPage = () => {
     dispatch(fetchAllCampers({ page: 1, limit: 4, filter: filterValue }));
   }, [dispatch, filterValue]);
 
-  if (!campers) return <p>Loading...</p>;
+  if (!campers) return <Loader />;
   if (error) return <p>Error: {error}</p>;
 
   console.log('Campers:', campers);
@@ -41,8 +43,12 @@ const CampersPage = () => {
     <section>
       <Container>
         <div className={css.wrapper}>
-          <SideBar onFilterChange={handleFilterChange} />
-          <Catalog campers={campers} />
+          <div className={css.compersPage}>
+            <SideBar onFilterChange={handleFilterChange} />
+            <Catalog campers={campers} />
+          </div>
+
+          <LoadMore />
         </div>
       </Container>
     </section>
