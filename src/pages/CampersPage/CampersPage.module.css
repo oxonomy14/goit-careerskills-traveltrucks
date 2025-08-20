@@ -5,4 +5,9 @@
 .compersPage {
   display: flex;
   gap: 64px;
+  margin-bottom: 40px;
+}
+.loadMore {
+  display: flex;
+  justify-content: flex-end;
 }

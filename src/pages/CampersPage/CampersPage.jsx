@@ -47,8 +47,9 @@ const CampersPage = () => {
             <SideBar onFilterChange={handleFilterChange} />
             <Catalog campers={campers} />
           </div>
-
+<div className={css.loadMore}>
           <LoadMore />
+          </div>
         </div>
       </Container>
     </section>

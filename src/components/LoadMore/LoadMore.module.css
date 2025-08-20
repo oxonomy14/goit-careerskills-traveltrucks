@@ -4,6 +4,7 @@
   padding: 16px 30px;
   width: 145px;
   height: 56px;
+      margin-right: 371px;
 }
 
 .btnLoadMore span {
@@ -17,8 +18,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .LoadMore {
-  }
+ 
 }
 
 @media only screen and (min-width: 1440px) {
