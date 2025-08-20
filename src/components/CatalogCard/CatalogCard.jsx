@@ -1,5 +1,6 @@
 import css from './CatalogCard.module.css';
 import { Link } from 'react-router-dom';
+import LoadMore from '../LoadMore/LoadMore';
 
 const CatalogCard = () => {
   return (
@@ -45,6 +46,30 @@ const CatalogCard = () => {
                   <p className={css.CatalogCardInfoOptionBoxTxt}>Automatic</p>
                 </div>
               </li>
+              <li className={css.CatalogCardInfoOptionItem}>
+                <div className={css.CatalogCardInfoOptionBox}>
+                  <svg width={20} height={20}>
+                    <use href="/icon/sprite.svg#icon-diagram"></use>
+                  </svg>
+                  <p className={css.CatalogCardInfoOptionBoxTxt}>Automatic</p>
+                </div>
+              </li>
+              <li className={css.CatalogCardInfoOptionItem}>
+                <div className={css.CatalogCardInfoOptionBox}>
+                  <svg width={20} height={20}>
+                    <use href="/icon/sprite.svg#icon-diagram"></use>
+                  </svg>
+                  <p className={css.CatalogCardInfoOptionBoxTxt}>Automatic</p>
+                </div>
+              </li>
+              <li className={css.CatalogCardInfoOptionItem}>
+                <div className={css.CatalogCardInfoOptionBox}>
+                  <svg width={20} height={20}>
+                    <use href="/icon/sprite.svg#icon-diagram"></use>
+                  </svg>
+                  <p className={css.CatalogCardInfoOptionBoxTxt}>Automatic</p>
+                </div>
+              </li>
             </ul>
           </div>
           <Link className={css.CatalogCardInfoBtn} to="/">
@@ -52,6 +77,7 @@ const CatalogCard = () => {
           </Link>
         </div>
       </div>
+      <LoadMore />
     </>
   );
 };

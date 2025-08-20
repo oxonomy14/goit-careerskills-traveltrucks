@@ -1,5 +1,4 @@
 import CatalogCard from '../CatalogCard/CatalogCard';
-import css from './Catalog.module.css';
 import Grid from '../Grid/Grid';
 import GridItem from '../GridItem/GridItem';
 
