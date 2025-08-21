@@ -1,4 +1,4 @@
-import CatalogCard from '../CatalogCard/CatalogCard';
+import CamperCard from '../CamperCard/CamperCard';
 import Grid from '../Grid/Grid';
 import GridItem from '../GridItem/GridItem';
 
@@ -8,7 +8,7 @@ const Catalog = ({ campers }) => {
       <Grid>
         {campers.map(item => (
           <GridItem key={item.id}>
-            <CatalogCard item={item} />
+            <CamperCard item={item} />
           </GridItem>
         ))}
       </Grid>
