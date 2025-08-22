@@ -24,10 +24,20 @@ const CampersPage = () => {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const filters = useSelector(selectFilter);
+    const page = useSelector(selectPage);
+  const pages = useSelector(selectPages);
 
-  const handleFilterChange = newFilters => {
-    // тільки оновлюємо Redux, запит зробить useEffect
-    dispatch(setFilter(newFilters));
+ const handleFilterChange = newFilters => {
+  // Відправляємо на бекенд лише активні фільтри
+  const activeFilters = Object.fromEntries(
+    Object.entries(newFilters).filter(([key, value]) => value && key !== 'location')
+  );
+
+  dispatch(fetchAllCampers({ page: 1, limit: 4, filters: { ...activeFilters, location: newFilters.location } }));
+};
+
+  const handleLoadMore = () => {
+    dispatch(fetchAllCampers({ page: page + 1, limit: 4, filters }));
   };
 
   useEffect(() => {
@@ -48,7 +58,9 @@ const CampersPage = () => {
             <Catalog campers={campers} />
           </div>
 <div className={css.loadMore}>
-          <LoadMore />
+           {page < pages && (
+        <LoadMore page={page} pages={pages} onLoadMore={handleLoadMore} />
+      )}
           </div>
         </div>
       </Container>

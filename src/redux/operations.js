@@ -5,23 +5,34 @@ export const fetchAllCampers = createAsyncThunk(
   'campers/fetchAll',
   async ({ page = 1, limit = 4, filters = {} }, thunkAPI) => {
     try {
-      // Видаляємо false / пусті значення з фільтрів
-      const cleanFilters = Object.fromEntries(
-        Object.entries(filters).filter(([_, value]) => value)
-      );
+      // Фільтри, які бекенд підтримує
+      const backendFilters = {};
+      if (filters.location) backendFilters.location = filters.location;
+      if (filters.form) backendFilters.form = filters.form;
+      if (filters.transmission) backendFilters.transmission = filters.transmission;
 
-      // Формуємо query string
-      const params = new URLSearchParams({
-        limit,
-        page,
-        ...cleanFilters,
-      }).toString();
+      const boolFields = [
+        'AC',
+        'bathroom',
+        'kitchen',
+        'TV',
+        'radio',
+        'refrigerator',
+        'microwave',
+        'gas',
+        'water',
+      ];
+      boolFields.forEach(field => {
+        if (filters[field]) backendFilters[field] = true;
+      });
 
-      const url = `/campers?${params}`;
-      const response = await axios.get(url);
+      // axios автоматично формує query string
+      const response = await axios.get('/campers', {
+        params: { page, limit, ...backendFilters },
+      });
 
-      // API повертає { total, items }
-      const { total, items } = response.data;
+      // 👇 тут беремо items і total з response.data
+      const { items = [], total = 0 } = response.data;
 
       return {
         items,
@@ -30,8 +41,10 @@ export const fetchAllCampers = createAsyncThunk(
         pages: Math.ceil(total / limit),
       };
     } catch (err) {
+      if (err.response?.status === 404) {
+        return { items: [], total: 0, page, pages: 0 };
+      }
       return thunkAPI.rejectWithValue(err.message);
     }
   }
 );
-

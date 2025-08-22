@@ -2,11 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   filters: {
-    location: '',   // текстове поле
-    form: '',       // тип кузова
-    AC: false,      // кондиціонер
-    kitchen: false, // кухня
-    TV: false,      // ще один критерій
+     location: '',   
+    form: '',
+    transmission: '',      
+    AC: false,      
+    kitchen: false, 
+    TV: false,      
     bathroom: false,
     radio: false,
     refrigerator: false,

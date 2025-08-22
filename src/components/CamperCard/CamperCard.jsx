@@ -1,8 +1,32 @@
 import css from './CamperCard.module.css';
 import { Link } from 'react-router-dom';
 import CamperFeatures from "../CamperFeatures/CamperFeatures";
+import { useState, useEffect } from 'react';
 
 const CamperCard = ({ item }) => {
+const { id } = item;
+   const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    setIsFavorite(favorites.includes(id));
+  }, [id]);
+
+  const handleFavoriteClick = () => {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    let updatedFavorites;
+
+    if (isFavorite) {
+      updatedFavorites = favorites.filter(favId => favId !== id);
+    } else {
+      updatedFavorites = [...favorites, id];
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    setIsFavorite(!isFavorite);
+  };
+
+
   return (
     <>
       <div className={css.CatalogCard}>
@@ -13,8 +37,9 @@ const CamperCard = ({ item }) => {
             <h3 className={css.CatalogCardInfoTopTitle}>{item.name}</h3>
             <div className={css.CatalogCardInfoTopRight}>
               <p className={css.CatalogCardInfoTopPrice}>{item.price.toFixed(2)}</p>
-              <button type="button">
-                <svg width={26} height={24}>
+              <button type="button"   className={css.favoriteBtn} 
+              onClick={handleFavoriteClick}>
+                <svg width={26} height={24}  className={isFavorite ? css.favoriteActive : ''}>
                   <use href="/icon/sprite.svg#icon-heart"></use>
                 </svg>
               </button>
@@ -37,7 +62,7 @@ const CamperCard = ({ item }) => {
           </p>
           <div />         
           <CamperFeatures item={item}/>
-          <Link className={css.CatalogCardInfoBtn} to="`/catalog/${item.id}`">
+          <Link className={css.CatalogCardInfoBtn} to={`/catalog/${item.id}`}>
             Show more
           </Link>
         </div>

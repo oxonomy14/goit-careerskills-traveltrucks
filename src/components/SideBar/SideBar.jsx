@@ -1,17 +1,104 @@
 import css from './SideBar.module.css';
+import { useState, useEffect } from 'react';
+import axios from '../../services/api';
 
-const SideBar = () => {
+const SideBar = ({onFilterChange}) => {
+   // локальний state для фільтрів
+  const [filters, setFilters] = useState({
+    location: '',   
+    form: '',
+    transmission: '',      
+    AC: false,      
+    kitchen: false, 
+    TV: false,      
+    bathroom: false,
+    radio: false,
+    refrigerator: false,
+    microwave: false,
+    gas: false,
+    water:false,
+  });
+
+  const [locations, setLocations] = useState([]);
+
+  // Завантаження доступних локацій з бекенду
+  useEffect(() => {
+  const fetchLocations = async () => {
+  try {
+    const response = await axios.get("/campers");
+    
+    // тут уже response.data.items
+    const uniqueLocations = [...new Set(response.data.items.map(c => c.location))].sort();
+    setLocations(uniqueLocations);
+  } catch (error) {
+    console.error("Error fetching locations:", error);
+  }
+};
+    fetchLocations();
+  }, []);
+
+   // Обробка зміни чекбокса / input
+  const handleChange = e => {
+    const { name, type, checked, value } = e.target;
+    setFilters(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  // Обробка зміни transmission
+  const handleTransmissionChange = () => {
+    setFilters(prev => ({
+      ...prev,
+      transmission: prev.transmission === 'automatic' ? '' : 'automatic',
+    }));
+  };
+
+  const handleFormChange = e => {
+    setFilters(prev => ({
+      ...prev,
+      form: e.target.value,
+    }));
+  };
+
+  // Сабміт форми
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const queryParams = {};
+    Object.entries(filters).forEach(([key, value]) => {
+      if (typeof value === 'boolean' && value) queryParams[key] = true;
+      if (typeof value === 'string' && value) queryParams[key] = value;
+    });
+
+    onFilterChange(queryParams);
+  };
+
   return (
     <>
       <div className={css.wrapper}>
-<form className=''>
-        <div className={css.location}>
+<form className={css.form} onSubmit={handleSubmit}>
+             <div className={css.location}>
           <p>Location</p>
-          <div className={css.locationBox}>
-            <svg className={css.IconLocation}>
+          <div className={css.inputWrapper}>
+                  <svg className={css.iconLocation} width={20} height={20}>
               <use href="/icon/sprite.svg#icon-map"></use>
             </svg>
-            <p>Kyiv, Ukraine</p>
+          <input 
+          className={css.locationInput}
+            type="text"
+            name="location"
+             list="locations"
+            value={filters.location}
+            onChange={handleChange}
+            placeholder="Select place"
+            
+          />
+           <datalist id="locations">
+              {locations.map(loc => (
+                <option key={loc} value={loc} />
+              ))}
+            </datalist>
           </div>
         </div>
         <div className={css.FiltersBox}>
@@ -20,13 +107,15 @@ const SideBar = () => {
           </div>
             <p className={css.FiltersFormTitle}>Vehicle equipment</p>
             <div className={css.FiltersFormVehicleEquipment}>
-              <label htmlFor="ac">
+              <label htmlFor="AC">
                 <input
                   className={css.FiltersFormInput}
                   type="checkbox"
-                  name="VehicleFilters"
-                  value="ac"
-                  id="ac"
+                 
+                  name="AC"
+                  id="AC"
+                  onChange={handleChange}
+                   checked={filters.AC}
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={32} height={32} className={css.FiltersCheckIcon}>
@@ -35,13 +124,14 @@ const SideBar = () => {
                   <p className={css.FiltersCheckText}>AC</p>
                 </div>
               </label>
-              <label htmlFor="automatic">
+              <label htmlFor="transmission">
                 <input
                   className={css.FiltersFormInput}
                   type="checkbox"
-                  name="VehicleFilters"
-                  value="automatic"
-                  id="automatic"
+                  name="transmission"                  
+                  id="transmission"
+                 onChange={handleTransmissionChange}
+                   checked={filters.transmission === 'automatic'}
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={32} height={32} className={css.FiltersCheckIcon}>
@@ -54,9 +144,11 @@ const SideBar = () => {
                 <input
                   className={css.FiltersFormInput}
                   type="checkbox"
-                  name="VehicleFilters"
-                  value="kitchen"
+                  name="kitchen"
+              
                   id="kitchen"
+                  onChange={handleChange}
+                   checked={filters.kitchen }
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={33} height={32} className={css.FiltersCheckIcon}>
@@ -65,13 +157,15 @@ const SideBar = () => {
                   <p className={css.FiltersCheckText}>Kitchen</p>
                 </div>
               </label>
-              <label htmlFor="tv">
+              <label htmlFor="TV">
                 <input
                   className={css.FiltersFormInput}
                   type="checkbox"
-                  name="VehicleFilters"
-                  value="tv"
-                  id="tv"
+                  name="TV"
+                
+                  id="TV"
+                  onChange={handleChange}
+                   checked={filters.TV }
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={33} height={32} className={css.FiltersCheckIcon}>
@@ -84,9 +178,11 @@ const SideBar = () => {
                 <input
                   className={css.FiltersFormInput}
                   type="checkbox"
-                  name="VehicleFilters"
-                  value="bathroom"
+                  name="bathroom"
+              
                   id="bathroom"
+                  onChange={handleChange}
+                   checked={filters.bathroom }
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={33} height={32} className={css.FiltersCheckIcon}>
@@ -96,15 +192,19 @@ const SideBar = () => {
                 </div>
               </label>
             </div>
+
+                 {/* Vehicle type (form) */}
             <p className={css.FiltersFormTitle}>Vehicle type</p>
             <div className={css.FiltersFormVehicleType}>
               <label htmlFor="van">
                 <input
                   className={css.FiltersFormInput}
-                  type="checkbox"
-                  name="VehicleFilters"
-                  value="van"
-                  id="van"
+                   type="radio"
+                   id="van"
+              name="form"
+              value="panelTruck"
+              checked={filters.form === 'panelTruck'}
+              onChange={handleFormChange}
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={32} height={32} className={css.FiltersCheckIcon}>
@@ -116,10 +216,12 @@ const SideBar = () => {
               <label htmlFor="fully">
                 <input
                   className={css.FiltersFormInput}
-                  type="checkbox"
-                  name="VehicleFilters"
-                  value="fully"
+                  type="radio"
                   id="fully"
+              name="form"
+              value="fullyIntegrated"
+              checked={filters.form === 'fullyIntegrated'}
+              onChange={handleFormChange}
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={32} height={32} className={css.FiltersCheckIcon}>
@@ -131,10 +233,12 @@ const SideBar = () => {
               <label htmlFor="alcove">
                 <input
                   className={css.FiltersFormInput}
-                  type="checkbox"
-                  name="VehicleFilters"
-                  value="alcove"
-                  id="alcove"
+                 type="radio"
+                 id="alcove"
+              name="form"
+              value="alcove"
+              checked={filters.form === 'alcove'}
+              onChange={handleFormChange}
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={33} height={32} className={css.FiltersCheckIcon}>
@@ -155,3 +259,6 @@ const SideBar = () => {
 };
 
 export default SideBar;
+
+
+

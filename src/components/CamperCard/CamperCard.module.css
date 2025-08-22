@@ -49,6 +49,25 @@
   margin-right: 12px;
 }
 
+/* .favoriteActive {
+  fill: var(--button);
+} */
+
+.favoriteBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.favoriteBtn svg {
+  fill: var(--main); 
+  transition: fill 0.2s;
+}
+
+.favoriteBtn svg.favoriteActive {
+  fill: var(--button); /* цвет для избранного */
+}
+
 .CatalogCardInfoSub {
   display: flex;
   align-items: center;

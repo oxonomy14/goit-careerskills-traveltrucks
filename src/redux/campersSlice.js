@@ -6,10 +6,10 @@ const initialState = {
     items: [],
     page: 1,
     pages: 1,
-    total: null,
+    total: 0,
     loadingCampers: false,
     errorCampers: null,
-    filter: 'all',
+    filters: {}, 
   },
 };
 
@@ -17,10 +17,13 @@ const campersSlice = createSlice({
   name: 'campersList',
   initialState,
   reducers: {
-    setFilter(state, action) {
-      state.campers.filter = action.payload;
+    setFilters(state, action) {
+      state.campers.filters = action.payload; 
       state.campers.page = 1;
-      state.campers.items = []; // очищаем список, чтобы перезагрузить данные
+      state.campers.items = []; 
+    },
+    resetCampers(state) {
+      state.campers = { ...initialState.campers }; 
     },
   },
 
@@ -35,7 +38,7 @@ const campersSlice = createSlice({
           state.campers.items = [...state.campers.items, ...items];
         }
 
-        state.campers.page = page;
+        state.campers.page = page + 1; 
         state.campers.pages = pages;
         state.campers.total = total;
         state.campers.loadingCampers = false;
@@ -55,4 +58,4 @@ const campersSlice = createSlice({
 
 export const campersReducer = campersSlice.reducer;
 
-export const { setFilter } = campersSlice.actions;
+export const { setFilters, resetCampers } = campersSlice.actions;

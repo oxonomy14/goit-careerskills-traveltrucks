@@ -18,7 +18,31 @@
   margin-bottom: 8px;
 }
 
-.locationBox {
+.inputWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.inputWrapper .iconLocation {
+  position: absolute;
+  left: 20px; /* отступ от края */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* чтобы клик проходил на input */
+}
+
+.inputWrapper input {
+  padding-left: 48px; /* отступ, чтобы текст не накладывался на иконку */
+  height: 56px;
+
+}
+
+.iconLocation {
+  margin-right: 8px;
+  
+}
+
+.locationInput {
   border-radius: 12px;
   padding: 18px 0px 18px 20px;
   width: 360px;
@@ -27,7 +51,19 @@
   display: flex;
   gap: 8px;
   justify-content: flex-start;
+border: none;
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: var(--main);
 }
+
+.locationInput:focus {
+  outline: none;
+  border: 1px solid var(--inputs);
+  box-shadow: none;
+} 
 
 .IconLocation {
   width: 20px;
