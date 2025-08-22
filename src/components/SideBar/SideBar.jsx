@@ -4,6 +4,7 @@ const SideBar = () => {
   return (
     <>
       <div className={css.wrapper}>
+<form className=''>
         <div className={css.location}>
           <p>Location</p>
           <div className={css.locationBox}>
@@ -16,7 +17,7 @@ const SideBar = () => {
         <div className={css.FiltersBox}>
           <p className={css.FiltersBoxTitle}>Filters</p>
 
-          <form className={css.FiltersForm}>
+          </div>
             <p className={css.FiltersFormTitle}>Vehicle equipment</p>
             <div className={css.FiltersFormVehicleEquipment}>
               <label htmlFor="ac">
@@ -148,7 +149,7 @@ const SideBar = () => {
             </button>
           </form>
         </div>
-      </div>
+    
     </>
   );
 };

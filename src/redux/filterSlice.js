@@ -1,7 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 'all', // текущий фильтр
+  filters: {
+    location: '',   // текстове поле
+    form: '',       // тип кузова
+    AC: false,      // кондиціонер
+    kitchen: false, // кухня
+    TV: false,      // ще один критерій
+    bathroom: false,
+    radio: false,
+    refrigerator: false,
+    microwave: false,
+    gas: false,
+    water:false,
+  },
 };
 
 const filterSlice = createSlice({
@@ -9,10 +21,14 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setFilter(state, action) {
-      state.value = action.payload;
+      // оновлюємо тільки ті поля, які прийшли
+      state.filters = { ...state.filters, ...action.payload };
+    },
+    resetFilter(state) {
+      state.filters = { ...initialState.filters }; // робимо копію
     },
   },
 });
 
-export const { setFilter } = filterSlice.actions;
+export const { setFilter, resetFilter } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

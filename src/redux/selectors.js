@@ -4,4 +4,4 @@ export const selectError = state => state.campersList.campers.errorCampers;
 export const selectPage = state => state.campersList.campers.page;
 export const selectPages = state => state.campersList.campers.pages;
 export const selectTotal = state => state.campersList.campers.total;
-export const selectFilter = state => state.filter.value;
+export const selectFilter = state => state.filter.filters; 

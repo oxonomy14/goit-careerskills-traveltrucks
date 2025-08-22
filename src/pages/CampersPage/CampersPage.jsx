@@ -23,16 +23,16 @@ const CampersPage = () => {
   const campers = useSelector(selectAllCampers);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
-  const filterValue = useSelector(selectFilter);
+  const filters = useSelector(selectFilter);
 
-  const handleFilterChange = value => {
-    dispatch(setFilter(value)); // обновляем фильтр в отдельном reducer
-    dispatch(fetchAllCampers({ page: 1, limit: 4, filter: value })); // перезагружаем кемперы
+  const handleFilterChange = newFilters => {
+    // тільки оновлюємо Redux, запит зробить useEffect
+    dispatch(setFilter(newFilters));
   };
 
   useEffect(() => {
-    dispatch(fetchAllCampers({ page: 1, limit: 4, filter: filterValue }));
-  }, [dispatch, filterValue]);
+    dispatch(fetchAllCampers({ page: 1, limit: 4, filters }));
+  }, [dispatch, filters]);
 
   if (!campers) return <Loader />;
   if (error) return <p>Error: {error}</p>;
