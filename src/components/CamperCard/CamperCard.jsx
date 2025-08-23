@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CamperFeatures from "../CamperFeatures/CamperFeatures";
 import { useState, useEffect } from 'react';
 
-const CamperCard = ({ item }) => {
+const CamperCard = ({ item, location }) => {
 const { id } = item;
    const [isFavorite, setIsFavorite] = useState(false);
 
@@ -36,7 +36,7 @@ const { id } = item;
           <div className={css.CatalogCardInfoTop}>
             <h3 className={css.CatalogCardInfoTopTitle}>{item.name}</h3>
             <div className={css.CatalogCardInfoTopRight}>
-              <p className={css.CatalogCardInfoTopPrice}>{item.price.toFixed(2)}</p>
+              <p className={css.CatalogCardInfoTopPrice}>€{item.price.toFixed(2)}</p>
               <button type="button"   className={css.favoriteBtn} 
               onClick={handleFavoriteClick}>
                 <svg width={26} height={24}  className={isFavorite ? css.favoriteActive : ''}>
@@ -62,7 +62,7 @@ const { id } = item;
           </p>
           <div />         
           <CamperFeatures item={item}/>
-          <Link className={css.CatalogCardInfoBtn} to={`/catalog/${item.id}`}>
+          <Link className={css.CatalogCardInfoBtn} location={location} to={`/catalog/${item.id}`}>
             Show more
           </Link>
         </div>

@@ -32,12 +32,38 @@ font-size: 20px;
 line-height: 120%;
 color: var(--main);
 margin-bottom: 24px;
+/* border-bottom: 1px solid var(--gray-light);
+padding-bottom: 24px; */
  }
 
  .featuresBox {
 border-top: 1px solid var(--gray-light);
-padding-top: 24px;
+padding-top: 24px; 
+overflow-y: auto;
+height: 224px;
+box-sizing: border-box;
  }
+
+/* Chrome, Edge, Safari */
+.featuresBox::-webkit-scrollbar {
+  width: 6px; /* тонка */
+}
+
+.featuresBox::-webkit-scrollbar-track {
+  background: transparent; /* прозорий трек */
+}
+
+.featuresBox::-webkit-scrollbar-thumb {
+  background-color: white; /* білий скроллбар */
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.featuresBox::-webkit-scrollbar-thumb:hover {
+  background-color: #ccc; /* при наведенні легка сірість */
+}
+
+
 
  .featuresBoxList {
     display: flex;

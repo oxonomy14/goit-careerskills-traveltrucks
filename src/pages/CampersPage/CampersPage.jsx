@@ -7,6 +7,7 @@ import LoadMore from '../../components/LoadMore/LoadMore';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCampers } from '../../redux/operations';
+import {useLocation } from "react-router-dom";
 
 import {
   selectAllCampers,
@@ -19,6 +20,7 @@ import {
 } from '../../redux/selectors';
 
 const CampersPage = () => {
+    const location = useLocation();
   const dispatch = useDispatch();
   const campers = useSelector(selectAllCampers);
   const loading = useSelector(selectLoading);
@@ -57,7 +59,7 @@ const CampersPage = () => {
         <div className={css.wrapper}>
           <div className={css.compersPage}>
             <SideBar onFilterChange={handleFilterChange} />
-            <Catalog campers={campers} />
+            <Catalog campers={campers} location={location}/>
           </div>
 <div className={css.loadMore}>
            {page < pages && (

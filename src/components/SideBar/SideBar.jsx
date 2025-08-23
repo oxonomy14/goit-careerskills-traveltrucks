@@ -91,7 +91,7 @@ const SideBar = ({onFilterChange}) => {
              list="locations"
             value={filters.location}
             onChange={handleChange}
-            placeholder="Select place"
+            placeholder="City"
             
           />
            <datalist id="locations">
@@ -190,6 +190,23 @@ const SideBar = ({onFilterChange}) => {
                   </svg>
                   <p className={css.FiltersCheckText}>Bathroom</p>
                 </div>
+                </label>
+                <label htmlFor="refrigerator">
+                <input
+                  className={css.FiltersFormInput}
+                  type="checkbox"
+                  name="refrigerator"
+              
+                  id="refrigerator"
+                  onChange={handleChange}
+                   checked={filters.fridge }
+                />
+                <div className={css.FiltersCheck}>
+                  <svg width={33} height={32} className={css.FiltersCheckIcon}>
+                    <use href="/icon/sprite.svg#icon-fridge"></use>
+                  </svg>
+                  <p className={css.FiltersCheckText}>Refrigerator</p>
+                </div>
               </label>
             </div>
 
@@ -225,7 +242,7 @@ const SideBar = ({onFilterChange}) => {
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={32} height={32} className={css.FiltersCheckIcon}>
-                    <use href="/icon/sprite.svg#icon-fully"></use>
+                    <use href="/icon/sprite.svg#icon-fullyIntegrated"></use>
                   </svg>
                   <p className={css.FiltersCheckText}>Fully Integrated</p>
                 </div>
