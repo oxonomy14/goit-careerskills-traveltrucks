@@ -20,3 +20,82 @@ padding: 44px;
 width: 641px;
 height: 588px;
 }
+
+
+
+
+
+.reviewsContentList {
+    display: flex;
+    flex-direction: column;
+    gap:44px;
+}
+
+
+
+
+
+.reviewsContentInfo {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.reviewsContentInfoAvatar {
+border-radius: 60px;
+width: 60px;
+height: 60px;
+background-color: var(--badges);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.reviewsContentInfoAvatar span {
+    font-family: var(--font-family);
+font-weight: 600;
+font-size: 24px;
+line-height: 133%;
+color: var(--button);
+text-transform: capitalize;
+}
+
+.reviewsContentRating {
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+    
+}
+
+.star {
+    display: flex;
+    gap:4px;
+}
+
+.IconStarFilled {
+  fill: var(--rating); /* жовта зірка */
+}
+
+.IconStarEmpty {
+  fill: var(--gray-light); /* сіра порожня */
+}
+
+.reviewsContentName {
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+color: var(--main);
+margin-bottom: 4px;
+
+}
+
+.reviewsContentItemDesc { 
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: var(--text);
+
+}

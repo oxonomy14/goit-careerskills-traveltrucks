@@ -12,9 +12,50 @@ background-color: var(--inputs);
 }
 
 .bookingForm {
-    border: 1px solid var(--gray-light);
+border: 1px solid var(--gray-light);
 border-radius: 10px;
 padding: 44px;
 width: 641px;
 height: 588px;
 }
+
+ .camperFeatures {
+    margin-bottom: 100px;
+ }
+
+ 
+
+ .featuresTitle {
+    font-family: var(--font-family);
+font-weight: 600;
+font-size: 20px;
+line-height: 120%;
+color: var(--main);
+margin-bottom: 24px;
+ }
+
+ .featuresBox {
+border-top: 1px solid var(--gray-light);
+padding-top: 24px;
+ }
+
+ .featuresBoxList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+ }
+
+ .featuresBoxItem {
+    display: flex;
+    justify-content: space-between;
+ }
+
+  .featuresBoxItem span {
+    font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+text-align: center;
+color: var(--main);
+  }
