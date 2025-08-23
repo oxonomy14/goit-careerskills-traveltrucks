@@ -11,7 +11,7 @@ const  CamperFeatures = ({ item }) => {
     { key: "radio", label: "Radio", icon: "icon-radios" },
     { key: "refrigerator", label: "Refrigerator", icon: "icon-fridge" },
     { key: "microwave", label: "Microwave", icon: "icon-microwave" },
-    { key: "gas", label: "Gas", icon: "icon-gas" },
+    { key: "gas", label: "Gas", icon: "icon-gas" },   
     { key: "water", label: "Water", icon: "icon-water" },
   ];
 

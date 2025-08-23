@@ -1,25 +1,18 @@
-//import { ClipLoader } from 'react-spinners';
-import { CircleLoader } from 'react-spinners';
+
+import { PropagateLoader } from 'react-spinners';
 
 import css from './Loader.module.css';
 
-const Loader = () => {
+const Loader = ({loading}) => {
   return (
-    <div className={css.backdrop}>
-      {/* <ClipLoader
-        color="#e44848"
+    <div className={`${css.loaderBackdrop} ${loading ? css.active : ""}`}>
+     
+      <PropagateLoader  color="#e44848"
         loading
-        size={60}
+        size={20}
         aria-label="Loading Spinner"
         data-testid="loader"
-      /> */}
-      <CircleLoader
-        color="#e44848"
-        loading
-        size={60}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+        speedMultiplier="1" />
     </div>
   );
 };

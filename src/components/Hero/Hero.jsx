@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <section>
-      <Container noVerticalPadding>
+      <Container>
         <div className={css.wrapper}>
           <h1 className={css.heroTitle}>Campers of your dreams</h1>
           <p className={css.heroText}>

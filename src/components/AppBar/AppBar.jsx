@@ -5,7 +5,7 @@ import css from './AppBar.module.css';
 const AppBar = () => {
   return (
     <header>
-      <Container noVerticalPadding>
+      <Container>
         <div className={css.wrapper}>
           <div className={css.appBar}>
             <div className={css.logo}>

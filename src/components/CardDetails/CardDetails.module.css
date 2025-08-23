@@ -1,0 +1,85 @@
+.Card {
+    margin-bottom: 60px;
+}
+
+.CardInfo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 28px;
+}
+
+.CardInfoTopTitle {
+    font-family: var(--font-family);
+font-weight: 600;
+font-size: 24px;
+line-height: 133%;
+color: var(--main);
+margin-bottom: 24px;
+}
+
+.CardInfoSub {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.IconStar {
+  fill: var(--rating);
+  stroke: none;
+  margin-right: 4px;
+}
+
+.CardReviews {
+  margin-right: 16px;
+
+  font-weight: 400;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  color: var(--main);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.locationBox {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.IconLocation {
+  fill: var(--main);
+}
+
+.locationBox p {
+  font-weight: 400;
+  font-size: 16px;
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  color: var(--main);
+}
+
+.CardInfoPrice {
+
+font-family: var(--font-family);
+font-weight: 600;
+font-size: 24px;
+line-height: 133%;
+color: var(--main);
+}
+
+.slider {
+    margin-bottom: 28px;
+}
+
+.CardInfoDesc {
+    font-family: var(--font-family);
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: var(--text);
+
+}

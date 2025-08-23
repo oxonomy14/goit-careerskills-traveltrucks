@@ -19,9 +19,14 @@
   align-items: center;
 }
 
-.featuresIconn {
+/* .featuresIconn {
     fill: var(--main);
     stroke: none;
+} */
+
+.featuresIconn {
+    fill: none;
+    stroke: var(--main);
 }
 
 .featuresTxt {

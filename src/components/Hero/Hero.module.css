@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1440px) {
+
   .wrapper {
     /* fallback для старых браузеров */
     background-image: url('/image/heroBackground-desk.webp');
@@ -16,7 +16,7 @@
     padding: 260px 64px;
 
     width: 100%;
-    min-height: 696px;
+    height: 100%;
   }
 
   .heroTitle {
@@ -59,4 +59,4 @@
   .heroButton:hover {
     background-color: var(--button-hover);
   }
-}
+

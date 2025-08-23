@@ -4,10 +4,10 @@ import SideBar from '../../components/SideBar/SideBar';
 import Catalog from '../../components/Catalog/Catalog';
 import Loader from '../../components/Loader/Loader';
 import LoadMore from '../../components/LoadMore/LoadMore';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCampers } from '../../redux/operations';
-import { setFilter } from '../../redux/filterSlice';
+
 import {
   selectAllCampers,
   selectLoading,
@@ -44,13 +44,15 @@ const CampersPage = () => {
     dispatch(fetchAllCampers({ page: 1, limit: 4, filters }));
   }, [dispatch, filters]);
 
-  if (!campers) return <Loader />;
+
+  if (!campers) return null;
   if (error) return <p>Error: {error}</p>;
 
   console.log('Campers:', campers);
 
   return (
     <section>
+      <Loader loading={loading} />
       <Container>
         <div className={css.wrapper}>
           <div className={css.compersPage}>
