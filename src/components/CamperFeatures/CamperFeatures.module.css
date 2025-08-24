@@ -19,15 +19,15 @@
   align-items: center;
 }
 
-/* .featuresIconn {
+ .featuresIconn {
     fill: var(--main);
     stroke: none;
-} */
+} 
 
-.featuresIconn {
-    fill: none;
-    stroke: var(--main);
-}
+/* .featuresIconn {
+fill: none;    
+  stroke: currentColor;
+} */
 
 .featuresTxt {
   font-weight: 500;

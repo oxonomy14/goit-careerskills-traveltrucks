@@ -173,3 +173,8 @@ color: var(--main);
 .FiltersFormButton:hover {
   background-color: var(--button-hover);
 }
+
+.btnBox {
+  display: flex;
+justify-content: space-between;
+}

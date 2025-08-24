@@ -58,8 +58,8 @@ const { id } = item;
             </div>
           </div>
           <p className={css.CatalogCardInfoText}>
-            {item.description?.length > 100
-            ? item.description.slice(0, 100) + '...'
+            {item.description?.length > 150
+            ? item.description.slice(0, 150) + '...'
             : item.description || 'No description'}
           </p>
           <div />         

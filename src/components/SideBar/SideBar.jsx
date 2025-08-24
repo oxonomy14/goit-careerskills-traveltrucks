@@ -3,22 +3,25 @@ import { useState, useEffect } from 'react';
 import axios from '../../services/api';
 import Dropdown from "../Dropdown/Dropdown";
 
+
+const initialFilters = {
+  location: '',   
+  form: '',
+  transmission: '',      
+  AC: false,      
+  kitchen: false, 
+  TV: false,      
+  bathroom: false,
+  radio: false,
+  refrigerator: false,
+  microwave: false,
+  gas: false,
+  water: false,
+};
+
 const SideBar = ({onFilterChange}) => {
    // локальний state для фільтрів
-  const [filters, setFilters] = useState({
-    location: '',   
-    form: '',
-    transmission: '',      
-    AC: false,      
-    kitchen: false, 
-    TV: false,      
-    bathroom: false,
-    radio: false,
-    refrigerator: false,
-    microwave: false,
-    gas: false,
-    water:false,
-  });
+  const [filters, setFilters] = useState(initialFilters);
 
   const [locations, setLocations] = useState([]);
 
@@ -73,6 +76,11 @@ const SideBar = ({onFilterChange}) => {
     });
 
     onFilterChange(queryParams);
+  };
+
+    const handleReset = () => {
+    setFilters(initialFilters);
+    onFilterChange({}); // очищуємо список на UI
   };
 
   return (
@@ -246,9 +254,18 @@ const SideBar = ({onFilterChange}) => {
                 </div>
               </label>
             </div>
+            <div className={css.btnBox}>
             <button type="submit" className={css.FiltersFormButton}>
               Search
             </button>
+            <button 
+          type="button" 
+          className={css.FiltersFormButton} 
+          onClick={handleReset}
+        >
+          Reset
+        </button>
+        </div>
           </form>
         </div>
     
