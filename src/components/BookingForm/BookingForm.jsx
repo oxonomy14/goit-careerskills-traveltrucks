@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import DatePicker from 'react-datepicker';
-import { de } from 'date-fns/locale';
+import { enGB } from 'date-fns/locale';
 import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-hot-toast';
 import Loader from '../Loader/Loader';
@@ -11,35 +11,43 @@ import s from './BookingForm.module.css';
 const schema = Yup.object({
   name: Yup.string()
     .trim()
-    .min(2, 'Name ist zu kurz')
-    .max(80, 'Max. 80 Zeichen')
-    .required('Name ist erforderlich'),
+    .min(2, 'Name is too short')
+    .max(80, 'Max. 80 characters')
+    .required('Name is required'),
   email: Yup.string()
     .trim()
-    .email('Bitte gültige E-Mail eingeben')
-    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, 'Bitte gültige E-Mail eingeben')
-    .required('E-Mail ist erforderlich'),
+    .email('Please enter a valid email')
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, 'Please enter a valid email')
+    .required('Email is required'),
   bookingDate: Yup.date()
     .nullable()
     .min(
       new Date(new Date().setHours(0, 0, 0, 0)),
-      'Datum darf nicht in der Vergangenheit liegen'
+      'Date cannot be in the past'
     )
-    .required('Buchungsdatum ist erforderlich'),
-  comment: Yup.string().max(500, 'Max. 500 Zeichen'),
+    .required('Booking date is required'),
+  comment: Yup.string().max(500, 'Max. 500 characters'),
 });
 
 const BookingForm = () => {
   const onSubmit = async (values, { resetForm, setSubmitting }) => {
     try {
-      // API-Call hier einbauen
+      // API call here
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      toast.success('Danke für deine Anfrage!');
+      toast.success('Thank you for your request!');
       resetForm();
     } catch (e) {
-      toast.error('Senden fehlgeschlagen. Bitte erneut versuchen.');
-    } finally {
+  console.error(e);
+
+  // Якщо є текст помилки від сервера або fetch
+  const errorMessage =
+    e?.response?.data?.message || // axios: помилка з бекенду
+    e?.message ||                 // js помилка
+    'Failed to send. Please try again.'; // запасний варіант
+
+  toast.error(errorMessage);}
+   finally {
       setSubmitting(false);
     }
   };
@@ -81,12 +89,12 @@ const BookingForm = () => {
                   onChange={(d) => setFieldValue('bookingDate', d)}
                   placeholderText="Booking date*"
                   minDate={new Date()}
-                  locale={de}
+                  locale={enGB}
                   dateFormat="dd.MM.yyyy"
                   className={s.input}
-                  calendarClassName={s.dp} // <- WICHTIG: s.dp (siehe CSS)
+                  calendarClassName={s.dp}
                   showPopperArrow
-                  formatWeekDay={(w) => w.slice(0, 3).toUpperCase()} // MON TUE ...
+                  formatWeekDay={(w) => w.slice(0, 3).toUpperCase()}
                 />
 
                 <ErrorMessage
@@ -111,7 +119,7 @@ const BookingForm = () => {
               </div>
             </div>
             <button type="submit" className={s.btn} disabled={isSubmitting}>
-              {isSubmitting ? 'Senden…' : 'Send'}
+              {isSubmitting ? 'Sending…' : 'Send'}
             </button>
           </Form>
         </>

@@ -20,7 +20,7 @@ height: 588px;
 }
 
  .camperFeatures {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
  }
 
  
@@ -39,6 +39,7 @@ padding-bottom: 24px; */
  .featuresBox {
 border-top: 1px solid var(--gray-light);
 padding-top: 24px; 
+padding-right: 8px;
 overflow-y: auto;
 height: 224px;
 box-sizing: border-box;

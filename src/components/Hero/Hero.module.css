@@ -1,23 +1,30 @@
-
-  .wrapper {
-    /* fallback для старых браузеров */
+ 
+   .hero {
+        
     background-image: url('/image/heroBackground-desk.webp');
 
-    /* ретина-версия */
+
     background-image: -webkit-image-set(
       url('/image/heroBackground-desk.webp') 1x,
-      url('/image/heroBackground-desk@2x.webp') 2x
+      url('/image/heroBackground-desk@2x-orig.webp') 2x
     );
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    padding: 260px 64px;
-
     width: 100%;
-    height: 100%;
-  }
+    box-sizing: border-box;
+    min-height: 100vh;
+    overflow: hidden; 
+  } 
+
+  
+  .wrapper {
+    padding: 260px 64px 0px;
+  
+  
+  } 
+
+
 
   .heroTitle {
     font-weight: 600;

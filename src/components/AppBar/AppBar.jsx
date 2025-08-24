@@ -4,7 +4,7 @@ import css from './AppBar.module.css';
 
 const AppBar = () => {
   return (
-    <header>
+    <header className={css.header}>
       <Container>
         <div className={css.wrapper}>
           <div className={css.appBar}>
