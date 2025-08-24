@@ -50,7 +50,7 @@ const CampersPage = () => {
   if (!campers) return null;
   if (error) return <p>Error: {error}</p>;
 
-  console.log('Campers:', campers);
+  //console.log('Campers:', campers);
 
   return (
     <section>

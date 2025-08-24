@@ -29,7 +29,7 @@ const CamperPage = () => {
         }
     }, [id, dispatch]);
 
-    console.log("Camper:", camper);
+    //console.log("Camper:", camper);
 
 
 

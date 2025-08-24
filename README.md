@@ -1,20 +1,56 @@
-# React + Vite
+# TravelTrucks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TravelTrucks** — це веб-застосунок для оренди кемперів, розроблений у рамках курсу "Career Strategies and Soft Skills for IT Professionals" від GoIT. Проєкт демонструє навички роботи з React, Vite, Redux, а також інтеграцію з API для отримання даних про кемпери.
 
-Currently, two official plugins are available:
+## 🔧 Основні функції
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Список кемперів**: Перегляд доступних для оренди кемперів із детальними описами.
+- **Фільтрація та сортування**: Можливість фільтрувати та сортувати кемпери за різними критеріями.
+- **Динамічні маршрути**: Використання React Router для навігації між сторінками.
+- **Redux**: Управління станом додатку через Redux.
+- **Інтерфейс користувача**: Адаптивний дизайн для зручного перегляду на різних пристроях.
 
-## Expanding the ESLint configuration
+## 🚀 Початок роботи
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Клонування репозиторію
 
-## Install
+```bash
+git clone https://github.com/oxonomy14/goit-careerskills-traveltrucks.git
 
-npm install react-datepicker date-fns
-npm i yup
-npm formik
-npm swipe
-npm i spiner
+### Встановлення залежностей
+cd goit-careerskills-traveltrucks
+npm install
+
+### Запуск проєкту
+
+npm run dev
+
+Відкрийте http://localhost:5173
+ у вашому браузері, щоб переглянути застосунок.
+
+
+## 📦 Технології
+
+React: Бібліотека для побудови користувацького інтерфейсу.
+
+Vite: Сучасний збірник проєктів для швидкої розробки.
+
+Redux: Бібліотека для управління станом додатку.
+
+React Router: Бібліотека для маршрутизації в React-додатках.
+
+SCSS: Препроцесор CSS для зручнішого стилювання.
+
+## 🌐 Доступна версія
+
+Переглянути робочий застосунок можна за посиланням:
+
+👉 goit-careerskills-traveltrucks.vercel.app
+
+## 👤 Автор
+
+Ім'я автора: Andrii Semenenko
+
+Контакт: oxonomy14@gmail.com
+
+Профіль GitHub: https://github.com/oxonomy14
