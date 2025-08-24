@@ -1,6 +1,7 @@
 import css from './SideBar.module.css';
 import { useState, useEffect } from 'react';
 import axios from '../../services/api';
+import Dropdown from "../Dropdown/Dropdown";
 
 const SideBar = ({onFilterChange}) => {
    // локальний state для фільтрів
@@ -78,29 +79,10 @@ const SideBar = ({onFilterChange}) => {
     <>
       <div className={css.wrapper}>
 <form className={css.form} onSubmit={handleSubmit}>
-             <div className={css.location}>
+      <div className={css.location}>
           <p>Location</p>
-          <div className={css.inputWrapper}>
-                  <svg className={css.iconLocation} width={20} height={20}>
-              <use href="/icon/sprite.svg#icon-map"></use>
-            </svg>
-          <input 
-          className={css.locationInput}
-            type="text"
-            name="location"
-             list="locations"
-            value={filters.location}
-            onChange={handleChange}
-            placeholder="City"
-            
-          />
-           <datalist id="locations">
-              {locations.map(loc => (
-                <option key={loc} value={loc} />
-              ))}
-            </datalist>
-          </div>
-        </div>
+  <Dropdown onChangeFilter={handleChange} locations={locations}/>
+</div>       
         <div className={css.FiltersBox}>
           <p className={css.FiltersBoxTitle}>Filters</p>
 
@@ -111,7 +93,6 @@ const SideBar = ({onFilterChange}) => {
                 <input
                   className={css.FiltersFormInput}
                   type="checkbox"
-                 
                   name="AC"
                   id="AC"
                   onChange={handleChange}
@@ -199,7 +180,7 @@ const SideBar = ({onFilterChange}) => {
               
                   id="refrigerator"
                   onChange={handleChange}
-                   checked={filters.fridge }
+                   checked={filters.refrigerator}
                 />
                 <div className={css.FiltersCheck}>
                   <svg width={33} height={32} className={css.FiltersCheckIcon}>

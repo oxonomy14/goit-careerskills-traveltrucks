@@ -21,7 +21,7 @@
   margin-bottom: 24px;
 }
 
-.field__wrapper {
+.fieldWrapper {
   display: flex;
   flex-direction: column;
   gap: 14px;

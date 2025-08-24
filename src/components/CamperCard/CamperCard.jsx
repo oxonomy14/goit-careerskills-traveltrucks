@@ -58,7 +58,9 @@ const { id } = item;
             </div>
           </div>
           <p className={css.CatalogCardInfoText}>
-            {item.description}
+            {item.description?.length > 100
+            ? item.description.slice(0, 100) + '...'
+            : item.description || 'No description'}
           </p>
           <div />         
           <CamperFeatures item={item}/>

@@ -1,0 +1,29 @@
+.iconChevron {
+  fill: none;
+  stroke: var(--gray);
+  width: 10px;
+  height: 6px;
+  }
+
+  .iconLocation {
+  fill: var(--gray); 
+  transition: fill 0.2s ease-in-out;
+}
+
+.iconActive {
+  fill: var(--main); 
+}
+
+@media only screen and (min-width: 768px) {
+  .svgIcon {
+    width: 16px;
+    height: 8px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .svgIcon {
+    width: 20px;
+    height: 10px;
+  }
+}

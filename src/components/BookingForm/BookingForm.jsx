@@ -6,7 +6,7 @@ import { enGB } from 'date-fns/locale';
 import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-hot-toast';
 import Loader from '../Loader/Loader';
-import s from './BookingForm.module.css';
+import css from './BookingForm.module.css';
 
 const schema = Yup.object({
   name: Yup.string()
@@ -32,7 +32,7 @@ const schema = Yup.object({
 const BookingForm = () => {
   const onSubmit = async (values, { resetForm, setSubmitting }) => {
     try {
-      // API call here
+    
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       toast.success('Thank you for your request!');
@@ -63,27 +63,27 @@ const BookingForm = () => {
       {({ setFieldValue, values, isSubmitting }) => (
         <>
           {isSubmitting && <Loader />}
-          <Form className={s.bookingCard}>
-            <h3 className={s.title}>Book your campervan now</h3>
-            <p className={s.subtitle}>
+          <Form className={css.bookingCard}>
+            <h3 className={css.title}>Book your campervan now</h3>
+            <p className={css.subtitle}>
               Stay connected! We are always ready to help you.
             </p>
-            <div className={s.field__wrapper}>
-              <div className={s.field}>
-                <Field name="name" placeholder="Name*" className={s.input} />
-                <ErrorMessage name="name" component="div" className={s.error} />
+            <div className={css.fieldWrapper}>
+              <div className={css.field}>
+                <Field name="name" placeholder="Name*" className={css.input} />
+                <ErrorMessage name="name" component="div" className={css.error} />
               </div>
 
-              <div className={s.field}>
-                <Field name="email" placeholder="Email*" className={s.input} />
+              <div className={css.field}>
+                <Field name="email" placeholder="Email*" className={css.input} />
                 <ErrorMessage
                   name="email"
                   component="div"
-                  className={s.error}
+                  className={css.error}
                 />
               </div>
 
-              <div className={s.field}>
+              <div className={css.field}>
                 <DatePicker
                   selected={values.bookingDate}
                   onChange={(d) => setFieldValue('bookingDate', d)}
@@ -91,8 +91,8 @@ const BookingForm = () => {
                   minDate={new Date()}
                   locale={enGB}
                   dateFormat="dd.MM.yyyy"
-                  className={s.input}
-                  calendarClassName={s.dp}
+                  className={css.input}
+                  calendarClassName={css.dp}
                   showPopperArrow
                   formatWeekDay={(w) => w.slice(0, 3).toUpperCase()}
                 />
@@ -100,26 +100,26 @@ const BookingForm = () => {
                 <ErrorMessage
                   name="bookingDate"
                   component="div"
-                  className={s.error}
+                  className={css.error}
                 />
               </div>
 
-              <div className={s.field}>
+              <div className={css.field}>
                 <Field
                   as="textarea"
                   name="comment"
                   placeholder="Comment"
-                  className={s.textarea}
+                  className={css.textarea}
                 />
                 <ErrorMessage
                   name="comment"
                   component="div"
-                  className={s.error}
+                  className={css.error}
                 />
               </div>
             </div>
-            <button type="submit" className={s.btn} disabled={isSubmitting}>
-              {isSubmitting ? 'Sending…' : 'Send'}
+            <button type="submit" className={css.btn} disabled={isSubmitting}>
+              {isSubmitting ? 'Sending' : 'Send'}
             </button>
           </Form>
         </>
