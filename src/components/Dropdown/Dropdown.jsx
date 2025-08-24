@@ -53,6 +53,7 @@ const customStyles = {
     width: '360px',
     height: '56px',
     boxShadow: 'none',
+    cursor: 'pointer',
     '&:hover': { borderColor: 'var(--inputs)' },
   }),
   option: (base, state) => ({
@@ -69,7 +70,7 @@ const customStyles = {
   maxHeight: '200px', 
   overflowY: 'auto', 
   paddingRight: '4px',
-   paddingLeft: '4px',      
+  paddingLeft: '4px',      
   boxSizing: 'content-box', 
  
 }),
