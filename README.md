@@ -19,6 +19,7 @@ git clone https://github.com/oxonomy14/goit-careerskills-traveltrucks.git
 ### Встановлення залежностей
 
 cd goit-careerskills-traveltrucks
+
 npm install
 
 ### Запуск проєкту
