@@ -6,12 +6,8 @@
 }
 
 .featuresItem {
-}
-
-.featuresBox {
   border-radius: 100px;
-  padding: 12px 18px;
-  max-width: 143px;
+  padding: 12px 18px;  
   height: 48px;
   background-color: var(--badges);
   display: flex;
@@ -19,15 +15,17 @@
   align-items: center;
 }
 
- .featuresIconn {
-    fill: var(--main);
-    stroke: none;
+
+ .featuresIcon {
+  fill: var(--main);
+  stroke: var(--main);  
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+
 } 
 
-/* .featuresIconn {
-fill: none;    
-  stroke: currentColor;
-} */
+
 
 .featuresTxt {
   font-weight: 500;
@@ -36,4 +34,5 @@ fill: none;
   line-height: 1.5;
   text-align: center;
   color: var(--main);
+  text-transform: capitalize;
 }

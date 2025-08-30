@@ -13,6 +13,8 @@ const  CamperFeatures = ({ item }) => {
     { key: "microwave", label: "Microwave", icon: "icon-microwave" },
     { key: "gas", label: "Gas", icon: "icon-gas" },   
     { key: "water", label: "Water", icon: "icon-water" },
+    { key: "engine", label: null, icon: "icon-petrol" },
+
   ];
 
   return (
@@ -20,13 +22,14 @@ const  CamperFeatures = ({ item }) => {
       {features.map(
         (feature) =>
           item[feature.key] && (
-            <li key={feature.key} className={css.featuresItem}>
-                  <div className={css.featuresBox}>
+            <li key={feature.key} className={css.featuresItem}>              
               <svg className={css.featuresIcon} width={20} height={20}>
-                <use xlinkHref={`/icon/sprite.svg#${feature.icon}`} />
+                <use href={`/icon/sprite.svg#${feature.icon}`} />
               </svg>
-              <span className={css.featuresTxt}>{feature.label}</span>
-              </div>
+              <span className={css.featuresTxt}>
+                    {feature.key === "engine" ? item.engine : feature.label}
+                </span>
+            
             </li>
           )
       )}
