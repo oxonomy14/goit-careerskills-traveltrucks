@@ -21,7 +21,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="catalog" element={<CampersPage />} />
           <Route path="catalog/:id" element={<CamperPage />} >
-           <Route index element={<Navigate to="features" replace />} />  {/* <-- дефолтна вкладка */}
+           <Route index element={<Navigate to="features" replace />} />  
              <Route path="features" element={<Features />} />
              <Route path="reviews" element={<Reviews />} />
           </Route>

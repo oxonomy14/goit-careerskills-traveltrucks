@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from 'react';
 
 const Features =() => {
-    const { id } = useParams(); // беремо id з URL
+    const { id } = useParams(); 
     const dispatch = useDispatch();
     const camper = useSelector(selectCamper);
 

@@ -28,7 +28,7 @@ const { id } = item;
 
 
   return (
-    <>
+    
       <div className={css.CatalogCard}>
         <img className={css.CatalogCardImage} src={item.gallery[0].thumb} alt={item.name} />
 
@@ -69,7 +69,7 @@ const { id } = item;
           </Link>
         </div>
       </div>
-    </>
+    
   );
 };
 

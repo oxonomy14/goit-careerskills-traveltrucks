@@ -1,27 +1,27 @@
 .Card {
-    margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 .CardInfoBox {
-margin-bottom: 28px;
+  margin-bottom: 28px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .CardInfo {
-    display: flex;
-    flex-direction: column;
-    
+  display: flex;
+  flex-direction: column;
 }
 
 .CardInfoTopTitle {
-    font-family: var(--font-family);
-font-weight: 600;
-font-size: 24px;
-line-height: 133%;
-color: var(--main);
-margin-bottom: 24px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
+  margin-bottom: 24px;
 }
 
 .CardInfoSub {
@@ -70,37 +70,35 @@ margin-bottom: 24px;
 }
 
 .CardInfoPrice {
-
-font-family: var(--font-family);
-font-weight: 600;
-font-size: 24px;
-line-height: 133%;
-color: var(--main);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  color: var(--main);
 }
 .btnLinkBack {
-border-radius: 200px;
-padding: 16px 60px;
-width: 166px;
-height: 56px;
-background-color: var(--button);
-font-family: var(--font-family);
-font-weight: 500;
-font-size: 16px;
-line-height: 150%;
-letter-spacing: -0.01em;
-color: var(--white);
-text-decoration: none;
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  background-color: var(--button);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  text-decoration: none;
 }
 
 .slider {
-    margin-bottom: 28px;
+  margin-bottom: 28px;
 }
 
 .CardInfoDesc {
-    font-family: var(--font-family);
-font-weight: 400;
-font-size: 16px;
-line-height: 150%;
-color: var(--text);
-
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text);
 }
