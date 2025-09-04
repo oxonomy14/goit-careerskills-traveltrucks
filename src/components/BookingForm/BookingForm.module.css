@@ -52,7 +52,7 @@
 
 .textarea {
   min-height: 118px;
-  resize: vertical;
+  resize: none;
 }
 
 .error {

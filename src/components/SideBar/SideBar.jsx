@@ -259,8 +259,8 @@ const SideBar = ({onFilterChange}) => {
               Search
             </button>
             <button 
-          type="button" 
-          className={css.FiltersFormButton} 
+          type="reset" 
+          className={css.ResetFormButton} 
           onClick={handleReset}
         >
           Reset

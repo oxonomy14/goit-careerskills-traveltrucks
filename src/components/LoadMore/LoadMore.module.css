@@ -17,6 +17,11 @@
   color: var(--main);
 }
 
+.btnLoadMore:hover
+ {
+border: 1px solid var(--button-hover);
+} 
+
 @media only screen and (min-width: 768px) {
  
 }
