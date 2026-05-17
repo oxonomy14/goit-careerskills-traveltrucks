@@ -19,7 +19,7 @@ const schema = Yup.object({
     .email('Please enter a valid email')
     .matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, 'Please enter a valid email')
     .required('Email is required'),
-  bookingDate: Yup.date()
+  bookingTime: Yup.date()
     .nullable()
     .min(
       new Date(new Date().setHours(0, 0, 0, 0)),

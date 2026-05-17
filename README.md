@@ -1,54 +1,58 @@
 # TravelTrucks
 
-**TravelTrucks** — це веб-застосунок для оренди кемперів, розроблений у рамках курсу "Career Strategies and Soft Skills for IT Professionals" від GoIT. Проєкт демонструє навички роботи з React, Vite, Redux, а також інтеграцію з API для отримання даних про кемпери.
+**TravelTrucks** is a camper rental web application developed as part of the
+**"Career Strategies and Soft Skills for IT Professionals"** course by GoIT. The
+project demonstrates practical skills in working with React, Vite, Redux, and
+API integration for fetching camper data.
 
-## 🔧 Основні функції
+## 🔧 Main Features
 
-- **Список кемперів**: Перегляд доступних для оренди кемперів із детальними описами.
-- **Фільтрація та сортування**: Можливість фільтрувати та сортувати кемпери за різними критеріями.
-- **Динамічні маршрути**: Використання React Router для навігації між сторінками.
-- **Redux**: Управління станом додатку через Redux.
-- **Інтерфейс користувача**: Дизайн додатку розроблений для перегляду на широких екранах (Desktop).
+- **Camper Listings** — Browse available campers for rent with detailed
+  descriptions.
+- **Filtering and Sorting** — Filter and sort campers based on different
+  criteria.
+- **Dynamic Routing** — Navigation between pages using React Router.
+- **Redux State Management** — Centralized application state management with
+  Redux.
+- **Responsive UI** — User interface optimized for desktop screens.
 
-## 🚀 Початок роботи
+## 🚀 Getting Started
 
-### Клонування репозиторію
+### Clone the Repository
 
+```bash
 git clone https://github.com/oxonomy14/goit-careerskills-traveltrucks.git
+```
 
-### Встановлення залежностей
+### Install Dependencies
 
+```bash
 cd goit-careerskills-traveltrucks
-
 npm install
+```
 
-### Запуск проєкту
+### Run the Project
 
+```bash
 npm run dev
+```
 
-Відкрийте http://localhost:5173 у вашому браузері, щоб переглянути застосунок.
+Open `http://localhost:5173` in your browser to view the application.
 
+## 📦 Technologies Used
 
-## 📦 Технології
+- **React** — Library for building user interfaces
+- **Vite** — Fast modern frontend build tool
+- **Redux** — State management library
+- **React Router** — Routing library for React applications
 
-React: Бібліотека для побудови користувацького інтерфейсу.
+## 🌐 Live Demo
 
-Vite: Сучасний збірник проєктів для швидкої розробки.
+[TravelTrucks Live Demo](https://goit-careerskills-traveltrucks.vercel.app)
 
-Redux: Бібліотека для управління станом додатку.
+## 👤 Author
 
-React Router: Бібліотека для маршрутизації в React-додатках.
+**Andrii Semenenko**
 
-## 🌐 Доступна версія
-
-Переглянути робочий застосунок можна за посиланням:
-https://goit-careerskills-traveltrucks.vercel.app
-
-## 👤 Автор
-
-Ім'я автора: Andrii Semenenko
-
-Контакт: oxonomy14@gmail.com
-
-Профіль GitHub: https://github.com/oxonomy14
-
+- Email: `hello@andriiweb.dev`
+- GitHub: [oxonomy14](https://github.com/oxonomy14)

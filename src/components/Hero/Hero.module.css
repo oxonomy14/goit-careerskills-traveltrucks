@@ -13,7 +13,7 @@
     background-repeat: no-repeat;
     width: 100%;
     box-sizing: border-box;
-    min-height: 100vh;
+   min-height: calc(100dvh - 72px);
     overflow: hidden; 
   } 
 
